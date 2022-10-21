@@ -1,15 +1,14 @@
 import './ButtonRandomizer.css';
-import {MouseEventHandler} from "react";
+import React, {MouseEventHandler} from "react";
 
-type Test = {
-  test: MouseEventHandler<HTMLButtonElement>,
-  name: string,
-  styleCss: string
-};
+interface RandomizerButtonProps {
+  function: MouseEventHandler<HTMLButtonElement>;
+  name: string;
+}
 
-const RandomizerButton = (props: Test) => {
+const RandomizerButton: React.FC<RandomizerButtonProps> = (props) => {
   return (
-      <button className={props.styleCss} type="submit" onClick={props.test}>{props.name}</button>
+      <button className="randomizer_btn" type="submit" onClick={props.function}>{props.name}</button>
   );
 };
 

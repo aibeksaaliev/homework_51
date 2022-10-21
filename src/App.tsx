@@ -1,15 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
-import LotteryBall from "./LotteryBall/lotteryBall";
-import RandomizerButton from "./Button/buttonRandomizer";
+import LotteryBall from "./LotteryBall/LotteryBall";
+import RandomizerButton from "./Button/ButtonRandomizer";
 
 function App() {
   const [randomNumbers, setRandomNumbers] = useState([0,0,0,0,0]);
-
-  const getRandomNumbers = () => {
-    setRandomNumbers(randomizer);
-  };
-
 
   const randomizer = () => {
     let session:number[] = [];
@@ -24,19 +19,28 @@ function App() {
         }
       }
     } while (session.length <= 4)
+
+    session = session.sort((a:number, b:number) => a -b);
+
     return session;
   };
 
-  randomizer();
+
+
+  const getRandomNumbers = () => {
+    setRandomNumbers(randomizer);
+  };
 
   return (
     <div className="app">
-      <button onClick={getRandomNumbers}>New numbers</button>
-      <LotteryBall ball_random_number={randomNumbers[0]}></LotteryBall>
-      <LotteryBall ball_random_number={randomNumbers[1]}></LotteryBall>
-      <LotteryBall ball_random_number={randomNumbers[2]}></LotteryBall>
-      <LotteryBall ball_random_number={randomNumbers[3]}></LotteryBall>
-      <LotteryBall ball_random_number={randomNumbers[4]}></LotteryBall>
+      <RandomizerButton name={'New numbers'} function={getRandomNumbers}/>
+      <div className="balls_box">
+        <LotteryBall ball_random_number={randomNumbers[0]}></LotteryBall>
+        <LotteryBall ball_random_number={randomNumbers[1]}></LotteryBall>
+        <LotteryBall ball_random_number={randomNumbers[2]}></LotteryBall>
+        <LotteryBall ball_random_number={randomNumbers[3]}></LotteryBall>
+        <LotteryBall ball_random_number={randomNumbers[4]}></LotteryBall>
+      </div>
     </div>
   );
 }

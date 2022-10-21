@@ -6,6 +6,7 @@ interface LotteryBallProps extends React.PropsWithChildren {
 }
 
 const LotteryBall: React.FC<LotteryBallProps> = (props) => {
+
   return (
     <div className="lottery_ball">
       <span>{props.ball_random_number}</span>

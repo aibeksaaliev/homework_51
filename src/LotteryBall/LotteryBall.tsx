@@ -1,4 +1,5 @@
 import React from "react";
+import './LotteryBall.css';
 
 interface LotteryBallProps extends React.PropsWithChildren {
   ball_random_number: number;

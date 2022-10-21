@@ -1,0 +1,17 @@
+.red {
+    background: red;
+}
+
+.black {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: goldenrod;
+    color: #fff;
+    width: 130px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    margin: 20px auto;
+}
